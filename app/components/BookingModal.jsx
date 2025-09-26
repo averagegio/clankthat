@@ -7,6 +7,7 @@ export default function BookingModal({ robot, onClose }) {
   const [loading, setLoading] = useState(false);
   const [confirmation, setConfirmation] = useState(null);
   const full = robot;
+  const [redirecting, setRedirecting] = useState(false);
 
   async function confirm() {
     setLoading(true);
@@ -69,6 +70,26 @@ export default function BookingModal({ robot, onClose }) {
           <button onClick={onClose} className="rounded-full px-4 py-2 btn-neon-outline border">Close</button>
           <button onClick={confirm} disabled={loading} className="rounded-full px-4 py-2 btn-neon-primary">
             {loading ? "Booking..." : "Confirm booking"}
+          </button>
+          <button
+            onClick={async () => {
+              setRedirecting(true);
+              try {
+                const res = await fetch('/api/checkout', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ slug: full.slug, hours }),
+                });
+                const data = await res.json();
+                if (data?.url) window.location.href = data.url;
+              } finally {
+                setRedirecting(false);
+              }
+            }}
+            disabled={redirecting}
+            className="rounded-full px-4 py-2 btn-neon-outline border"
+          >
+            {redirecting ? "Redirecting..." : "Pay with Stripe"}
           </button>
         </div>
 
