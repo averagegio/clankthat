@@ -4,9 +4,16 @@ import { useEffect, useState } from "react";
 
 export default function SuccessPage() {
   const [sessionId, setSessionId] = useState("");
+  const [receiptUrl, setReceiptUrl] = useState("");
   useEffect(() => {
     const id = new URLSearchParams(window.location.search).get("session_id");
     if (id) setSessionId(id);
+    if (id) {
+      fetch(`/api/checkout/receipt?session_id=${id}`)
+        .then((r) => r.json())
+        .then((d) => setReceiptUrl(d.receipt_url || ""))
+        .catch(() => {});
+    }
   }, []);
 
   return (
@@ -16,7 +23,10 @@ export default function SuccessPage() {
       {sessionId && (
         <p className="text-white/70 text-sm mt-2">Session: {sessionId}</p>
       )}
-      <a href="/" className="mt-6 inline-block rounded-full px-4 py-2 btn-neon-primary">Back home</a>
+      {receiptUrl ? (
+        <a href={receiptUrl} target="_blank" rel="noopener noreferrer" className="mt-6 inline-block rounded-full px-4 py-2 btn-neon-outline border">View receipt</a>
+      ) : null}
+      <a href="/" className="mt-3 inline-block rounded-full px-4 py-2 btn-neon-primary">Back home</a>
     </div>
   );
 }
