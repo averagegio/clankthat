@@ -17,7 +17,7 @@ export default function Navbar() {
             className="h-8 w-auto sm:h-10"
           />
         </Link>
-        <nav className="hidden sm:flex items-center gap-5 text-sm">
+        <nav className="flex items-center gap-5 text-sm">
           <Link href="#features" className="hover:opacity-80">Features</Link>
           <Link href="#robots" className="hover:opacity-80">Robots</Link>
           <Link href="#services" className="hover:opacity-80">Services</Link>
