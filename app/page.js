@@ -65,7 +65,7 @@ export default function Home() {
               private, and designed for real connection.
             </p>
             <div className="mt-4 flex gap-3">
-              <a className="rounded-full px-4 py-2 text-sm font-medium btn-neon-primary" href="#get-started">Get started</a>
+              <a className="rounded-full px-4 py-2 text-sm font-medium btn-neon-primary" href="/auth">Get started</a>
               <a className="rounded-full px-4 py-2 text-sm font-medium btn-neon-outline border" href="#learn-more">Learn more</a>
             </div>
           </div>
