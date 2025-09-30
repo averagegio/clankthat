@@ -67,7 +67,7 @@ export default function Home() {
             </p>
             <div className="mt-4 flex gap-3">
               <a className="rounded-full px-4 py-2 text-sm font-medium btn-neon-primary" href="/auth">Get started</a>
-              <a className="rounded-full px-4 py-2 text-sm font-medium btn-neon-outline border" href="#learn-more">Learn more</a>
+              <a className="rounded-full px-4 py-2 text-sm font-medium btn-neon-outline border" href="/about">Learn more</a>
             </div>
           </div>
           <div className="relative aspect-[16/10] rounded-2xl overflow-hidden border border-black/10 dark:border-white/10">
