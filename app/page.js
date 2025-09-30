@@ -114,12 +114,18 @@ export default function Home() {
         <section id="services" className="mt-12">
           <h2 className="text-xl font-semibold">Service categories</h2>
           <div className="mt-4 grid gap-4 sm:grid-cols-3">
-            {["Companionship","Events","Assistance"].map((c) => (
-              <div key={c} className="rounded-xl border border-black/10 dark:border-white/10 p-4">
-                <h3 className="text-base font-medium">{c}</h3>
-                <p className="mt-1 text-sm text-black/70 dark:text-white/70">Book by the hour with transparent pricing and verified reviews.</p>
-              </div>
-            ))}
+            <a href="/api/services/companionship" className="rounded-xl border border-white/10 p-4 bg-white/[.02] hover:bg-white/[.04] transition-colors">
+              <h3 className="text-base font-medium">Companionship</h3>
+              <p className="mt-1 text-sm text-white/75">Ari‑9, Echo, Nova</p>
+            </a>
+            <a href="/api/services/events" className="rounded-xl border border-white/10 p-4 bg-white/[.02] hover:bg-white/[.04] transition-colors">
+              <h3 className="text-base font-medium">Events</h3>
+              <p className="mt-1 text-sm text-white/75">Mezo, Siva</p>
+            </a>
+            <a href="/api/services/assistance" className="rounded-xl border border-white/10 p-4 bg-white/[.02] hover:bg-white/[.04] transition-colors">
+              <h3 className="text-base font-medium">Assistance</h3>
+              <p className="mt-1 text-sm text-white/75">Echo, Mezo</p>
+            </a>
           </div>
         </section>
 
