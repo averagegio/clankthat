@@ -76,12 +76,18 @@ export default function Home() {
 
         {/* Features */}
         <section id="features" className="mt-12 grid gap-4 sm:grid-cols-3">
-          {["Verified profiles","Private sessions","On-demand services"].map((t, i) => (
-            <div key={i} className="rounded-xl border border-white/10 p-4 bg-white/[.02]">
-              <h3 className="text-base font-medium">{t}</h3>
-              <p className="mt-1 text-sm text-white/75">Mobile-first, fast, and secure. Built for quick matches and easy booking.</p>
-            </div>
-          ))}
+          <div className="rounded-xl border border-white/10 p-4 bg-white/[.02]">
+            <h3 className="text-base font-medium">Verified profiles</h3>
+            <p className="mt-1 text-sm text-white/75">Every profile is verified for authenticity and safety.</p>
+          </div>
+          <div className="rounded-xl border border-white/10 p-4 bg-white/[.02]">
+            <h3 className="text-base font-medium">Private sessions</h3>
+            <p className="mt-1 text-sm text-white/75">Encrypted chats and private bookings—your data stays yours.</p>
+          </div>
+          <div className="rounded-xl border border-white/10 p-4 bg-white/[.02]">
+            <h3 className="text-base font-medium">On‑demand services</h3>
+            <p className="mt-1 text-sm text-white/75">Book by the hour with clear pricing and instant confirmation.</p>
+          </div>
         </section>
 
         {/* Robots - Female */}
