@@ -24,7 +24,7 @@ export default function Navbar() {
           <Link href="/matches" className="hover:opacity-80">Matches</Link>
         </nav>
         <div className="flex items-center gap-2">
-          <Link href="#get-started" className="inline-flex items-center rounded-full px-3 py-1.5 text-sm font-medium btn-neon-primary">
+          <Link href="/auth" className="inline-flex items-center rounded-full px-3 py-1.5 text-sm font-medium btn-neon-primary">
             Get started
           </Link>
         </div>

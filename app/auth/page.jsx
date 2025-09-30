@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import BackHome from "../components/BackHome";
 
 async function post(url, data) {
   const res = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
@@ -28,6 +29,7 @@ export default function AuthPage() {
 
   return (
     <div className="mx-auto max-w-sm px-4 pt-12">
+      <BackHome />
       <h1 className="text-2xl font-semibold neon-heading">{mode === "signup" ? "Create account" : "Sign in"}</h1>
 
       <form onSubmit={submit} className="mt-6 grid gap-3">

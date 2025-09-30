@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getRobotBySlug } from "@/app/lib/robots";
+import BackHome from "../../components/BackHome";
 
 export default function RobotProfile({ params }) {
   const robot = getRobotBySlug(params.slug);
@@ -7,6 +8,7 @@ export default function RobotProfile({ params }) {
 
   return (
     <div className="mx-auto max-w-screen-lg px-4 pt-8">
+      <BackHome />
       <div className="grid gap-6 sm:grid-cols-2">
         <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10">
           <Image src={robot.image} alt={robot.name} fill className="object-cover" />

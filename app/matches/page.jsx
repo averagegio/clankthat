@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import BackHome from "../components/BackHome";
 
 export default function Matches() {
   const [cards, setCards] = useState([]);
@@ -23,6 +24,7 @@ export default function Matches() {
 
   return (
     <div className="mx-auto max-w-screen-sm px-4 pt-8">
+      <BackHome />
       <h1 className="text-2xl font-semibold neon-heading">Find matches</h1>
       <p className="text-white/75 mt-1">Swipe right to like, left to pass.</p>
 
