@@ -20,7 +20,7 @@ export default function Navbar() {
         <nav className="flex items-center gap-5 text-sm">
           <Link href="/" className="hover:opacity-80">Home</Link>
           <Link href="/matches" className="hover:opacity-80">Matches</Link>
-          <Link href="/auth" className="hover:opacity-80">Auth</Link>
+          <Link href="/auth" className="hover:opacity-80">Membership</Link>
         </nav>
         <div className="flex items-center gap-2">
           <Link href="/auth" className="inline-flex items-center rounded-full px-3 py-1.5 text-sm font-medium btn-neon-primary">
