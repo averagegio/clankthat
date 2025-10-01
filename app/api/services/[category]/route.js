@@ -1,25 +1,17 @@
-import { robots } from "@/app/lib/robots";
+import { getCategoryNames, getRobotsForCategory } from "@/app/lib/categories";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-const CATEGORY_TO_SLUGS = {
-  companionship: ["ari-9", "echo", "nova"],
-  events: ["mezo", "siva"],
-  assistance: ["echo", "mezo"],
-};
-
 export async function GET(_req, { params }) {
   const category = String(params.category || "").toLowerCase();
-  if (!CATEGORY_TO_SLUGS[category]) {
+  const list = getRobotsForCategory(category);
+  if (!list) {
     return Response.json(
-      { error: "Unknown category", categories: Object.keys(CATEGORY_TO_SLUGS) },
+      { error: "Unknown category", categories: getCategoryNames() },
       { status: 404 }
     );
   }
-
-  const allowed = new Set(CATEGORY_TO_SLUGS[category]);
-  const list = robots.filter((r) => allowed.has(r.slug));
   return Response.json({ category, robots: list });
 }
 

@@ -1,28 +1,21 @@
 import Link from "next/link";
 import BackHome from "@/app/components/BackHome";
 import RobotCard from "@/app/components/RobotCard";
+import { getCategoryNames, getRobotsForCategory } from "@/app/lib/categories";
 
-async function fetchCategory(category) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL ?? ""}/api/services/${category}`, { cache: "no-store" });
-  if (!res.ok) return null;
-  return res.json();
-}
-
-export default async function ServiceCategoryPage({ params }) {
+export default function ServiceCategoryPage({ params }) {
   const category = String(params.category || "");
-  const data = await fetchCategory(category);
+  const robots = getRobotsForCategory(category);
 
-  if (!data) {
+  if (!robots) {
     return (
       <div className="mx-auto max-w-screen-lg px-4 pt-8">
         <BackHome />
         <h1 className="text-2xl font-semibold neon-heading">Category not found</h1>
-        <p className="mt-2 text-white/75">Try one of: companionship, events, assistance.</p>
+        <p className="mt-2 text-white/75">Try one of: {getCategoryNames().join(", ")}</p>
       </div>
     );
   }
-
-  const { robots = [] } = data;
 
   return (
     <div className="mx-auto max-w-screen-lg px-4 pt-8">
